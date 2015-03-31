@@ -1,10 +1,11 @@
 Name:           extlinux-bootloader
-Version:        1.0
-Release:        5%{?dist}
+Version:        1.1
+Release:        1%{?dist}
 Summary:        The EXTLINUX bootloader framework, for booting the local system
 
 License:        GPLv2+
 URL:            http://fedoraproject.org/wiki/extlinux-bootloader
+Source1:        extlinux
 
 Provides:       syslinux-extlinux
 
@@ -26,14 +27,7 @@ mkdir -p %{buildroot}/boot/extlinux/
 
 mkdir -p %{buildroot}/etc
 ( cd %{buildroot}/etc && ln -s ../boot/extlinux/extlinux.conf . )
-cat > %{buildroot}%{_sbindir}/extlinux <<EOF
-#!/bin/bash
-# dummy script to allow anaconda code to call extlinux to install bootloader
-# needed to allow the same code used for anaconda to work everywhere
-true
-EOF
-chmod 755 %{buildroot}%{_sbindir}/extlinux
-
+install -p %{SOURCE1} %{buildroot}%{_sbindir}
 
 %files
 %doc
@@ -44,6 +38,9 @@ chmod 755 %{buildroot}%{_sbindir}/extlinux
 
 
 %changelog
+* Mon Mar 30 2015 Dennis Gilmore <dennis@ausil.us> - 1.1-1
+- add a new extlinux script to setup dtb handling on arm 
+
 * Sat Aug 16 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
