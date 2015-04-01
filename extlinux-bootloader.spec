@@ -1,6 +1,6 @@
 Name:           extlinux-bootloader
 Version:        1.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        The EXTLINUX bootloader framework, for booting the local system
 
 License:        GPLv2+
@@ -38,6 +38,9 @@ install -p %{SOURCE1} %{buildroot}%{_sbindir}
 
 
 %changelog
+* Wed Apr 01 2015 Dennis Gilmore <dennis@ausil.us> - 1.1-3
+- add a missing / when listing the contents of /boot
+
 * Wed Apr 01 2015 Dennis Gilmore <dennis@ausil.us> - 1.1-2
 - add a function to copy the dtbs to the rescue boot target if one exists
 

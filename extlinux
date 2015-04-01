@@ -62,7 +62,7 @@ def copy_rescue_dtbs():
     '''
     check if there is a rescue image and copy the dtb files if there is
     '''
-    boot = os.listdir('boot')
+    boot = os.listdir('/boot')
     dtbsource = ''
     dtbdest = ''
     has_rescue = False
