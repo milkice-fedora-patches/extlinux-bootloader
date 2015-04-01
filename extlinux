@@ -9,6 +9,7 @@
 # option) any later version.  See http://www.gnu.org/copyleft/gpl.html for
 # the full text of the license.
 
+import os
 
 def is_calxeda():
     #is the system a calxeda one
@@ -57,6 +58,26 @@ def insert_fdtdir():
     fd.writelines(newextlinux)
     fd.close()
 
+def copy_rescue_dtbs():
+    '''
+    check if there is a rescue image and copy the dtb files if there is
+    '''
+    boot = os.listdir('boot')
+    dtbsource = ''
+    dtbdest = ''
+    has_rescue = False
+    for target in boot:
+       if target.startswith('vmlinuz-0-rescue'):
+           has_rescue = True
+           dtbdest = '/boot/%s' % target.replace('vmlinuz', 'dtb')
+       if target.startswith('dtb'):
+           dtbsource = '/boot/%s' % target
+    if has_rescue:
+       if not os.path.isdir(dtbdest):
+           os.mkdir(dtbdest)
+           for dtb in os.listdir(dtbsource):
+               os.link(os.path.join(dtbsource, dtb), os.path.join(dtbdest, dtb))
+
 if __name__ == "__main__":
     # platform ships its own dtb
     if is_calxeda():
@@ -64,3 +85,4 @@ if __name__ == "__main__":
     else:
     # need to add fdtdir to extlinux.conf
         insert_fdtdir()
+        copy_rescue_dtbs()

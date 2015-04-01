@@ -38,6 +38,9 @@ install -p %{SOURCE1} %{buildroot}%{_sbindir}
 
 
 %changelog
+* Wed Apr 01 2015 Dennis Gilmore <dennis@ausil.us> - 1.1-2
+- add a function to copy the dtbs to the rescue boot target if one exists
+
 * Mon Mar 30 2015 Dennis Gilmore <dennis@ausil.us> - 1.1-1
 - add a new extlinux script to setup dtb handling on arm 
 
