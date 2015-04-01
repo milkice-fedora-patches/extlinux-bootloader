@@ -1,6 +1,6 @@
 Name:           extlinux-bootloader
 Version:        1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The EXTLINUX bootloader framework, for booting the local system
 
 License:        GPLv2+
