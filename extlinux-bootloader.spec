@@ -1,6 +1,6 @@
 Name:           extlinux-bootloader
 Version:        1.1
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        The EXTLINUX bootloader framework, for booting the local system
 
 License:        GPLv2+
@@ -38,6 +38,9 @@ install -p %{SOURCE1} %{buildroot}%{_sbindir}
 
 
 %changelog
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.1-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.1-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
