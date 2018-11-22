@@ -26,6 +26,7 @@ insert_fdtdir() {
     # for every 'kernel' directive found, map it to an 'fdtdir' directive
     # referencing the dtb directory and add it after the 'append' directive
     sed -i \
+        -e '/	fdtdir/d' \
         -e '/	kernel/{h;s/kernel/fdtdir/g;s/vmlinuz/dtb/g;x}' \
         -e '/	append/{p;x}' \
         /boot/extlinux/extlinux.conf
