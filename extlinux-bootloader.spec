@@ -1,12 +1,13 @@
 Name:           extlinux-bootloader
 Version:        1.2
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        The EXTLINUX bootloader framework, for booting the local system
 
 License:        GPLv2+
 URL:            http://fedoraproject.org/wiki/extlinux-bootloader
 Source1:        extlinux.sh
 BuildRequires:  coreutils
+Requires:       grubby-deprecated
 Provides:       syslinux-extlinux
 
 ExclusiveArch:  %{arm} aarch64
@@ -38,6 +39,10 @@ install -p %{SOURCE1} %{buildroot}%{_sbindir}/extlinux
 
 
 %changelog
+* Fri Nov 30 2018 Javier Martinez Canillas <javierm@redhat.com> - 1.2-7
+- Make syslinux-extlinux to Require grubby-deprecated
+  Resolves: rhbz#1654841
+
 * Thu Nov 22 2018 Pablo Greco <pablo@fliagreco.com.ar> - 1.2-6
 * Avoid multiple fdtdir entries
 
