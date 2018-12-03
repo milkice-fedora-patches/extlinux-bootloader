@@ -7,7 +7,9 @@ License:        GPLv2+
 URL:            http://fedoraproject.org/wiki/extlinux-bootloader
 Source1:        extlinux.sh
 BuildRequires:  coreutils
+%if 0%{?fedora} > 29
 Requires:       grubby-deprecated
+%endif
 Provides:       syslinux-extlinux
 
 ExclusiveArch:  %{arm} aarch64
