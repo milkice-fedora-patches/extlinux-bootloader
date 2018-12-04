@@ -53,7 +53,7 @@ copy_rescue_dtbs() {
     if [ $has_rescue = 1 ] && [ ! -d "$dtbdest" ] ; then
        mkdir "$dtbdest"
        for dtb in $(ls "$dtbsource") ; do
-           ln "$dtbsource/$dtb" "$dtbdest/$dtb"
+           cp "$dtbsource/$dtb" "$dtbdest/$dtb"
        done
     fi
 }
