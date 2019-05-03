@@ -1,10 +1,10 @@
 Name:           extlinux-bootloader
 Version:        1.2
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        The EXTLINUX bootloader framework, for booting the local system
 
 License:        GPLv2+
-URL:            http://fedoraproject.org/wiki/extlinux-bootloader
+URL:            https://src.fedoraproject.org/rpms/extlinux-bootloader
 Source1:        extlinux.sh
 BuildRequires:  coreutils
 %if 0%{?fedora} > 29
@@ -41,6 +41,9 @@ install -p %{SOURCE1} %{buildroot}%{_sbindir}/extlinux
 
 
 %changelog
+* Fri May 03 2019 Petr Pisar <ppisar@redhat.com> - 1.2-9
+- Correct URL in RPM metadata (bug #1510763)
+
 * Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.2-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
